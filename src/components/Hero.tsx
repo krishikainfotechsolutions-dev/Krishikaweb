@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { openWhatsApp } from "@/lib/whatsapp";
 import { SITE } from "@/lib/site";
 
@@ -50,6 +50,10 @@ export const Hero = () => (
               >
                 View Work
               </a>
+            </div>
+            <div className="inline-flex self-start items-center gap-2 px-2.5 py-1.5 border-[1.5px] border-foreground bg-[#FFD60A] text-foreground text-[10px] font-bold uppercase tracking-widest shadow-[3px_3px_0_0_hsl(var(--foreground))]">
+              <Sparkles size={12} strokeWidth={2.5} />
+              Fresh Launch · Founding Client Pricing
             </div>
           </div>
         </div>
