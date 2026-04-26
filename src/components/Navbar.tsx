@@ -1,91 +1,71 @@
-import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { useState } from "react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { openWhatsApp } from "@/lib/whatsapp";
 import { SITE } from "@/lib/site";
 
 const links = [
-  { href: "#services", label: "Services" },
-  { href: "#pricing", label: "Pricing" },
-  { href: "#portfolio", label: "Work" },
-  { href: "#process", label: "Process" },
-  { href: "#contact", label: "Contact" },
+  { href: "#services", label: "Services", n: "01" },
+  { href: "#portfolio", label: "Portfolio", n: "02" },
+  { href: "#pricing", label: "Pricing", n: "03" },
+  { href: "#contact", label: "Contact", n: "04" },
 ];
 
 export const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/80 backdrop-blur-md border-b border-border" : "bg-transparent"
-      }`}
-    >
-      <nav className="max-w-7xl mx-auto px-5 md:px-8 h-16 md:h-20 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2 group">
-          <span className="w-8 h-8 grid place-items-center rounded-md bg-primary text-primary-foreground font-display font-bold">
-            K
-          </span>
-          <span className="font-display font-semibold text-foreground hidden sm:block">
+    <header className="sticky top-0 z-50 bg-background border-b-[1.5px] border-foreground">
+      <nav className="grid grid-cols-2 md:grid-cols-6">
+        <a href="#top" className="p-5 md:p-6 border-r-[1.5px] border-foreground flex items-center">
+          <span className="font-bold tracking-tighter text-xl md:text-2xl uppercase">
             {SITE.short}<span className="text-primary">.</span>
           </span>
         </a>
-
-        <ul className="hidden md:flex items-center gap-8">
-          {links.map((l) => (
-            <li key={l.href}>
-              <a
-                href={l.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {l.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <div className="flex items-center gap-3">
-          <button
-            onClick={() => openWhatsApp(`Hi ${SITE.short}, I'd like a quote for a website.`)}
-            className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition"
+        {links.map((l) => (
+          <a
+            key={l.href}
+            href={l.href}
+            className="hidden md:flex p-6 border-r-[1.5px] border-foreground items-center justify-between hover:bg-secondary transition-colors"
           >
-            Get Quote
-          </button>
-          <button
-            aria-label="Open menu"
-            className="md:hidden p-2 text-foreground"
-            onClick={() => setOpen((v) => !v)}
-          >
-            {open ? <X size={22} /> : <Menu size={22} />}
-          </button>
-        </div>
+            <span className="text-xs uppercase font-bold tracking-widest">{l.label}</span>
+            <span className="text-xs text-primary font-bold">[{l.n}]</span>
+          </a>
+        ))}
+        <button
+          onClick={() => openWhatsApp(`Hi ${SITE.short}, I want to start a project.`)}
+          className="hidden md:flex p-6 items-center justify-between bg-foreground text-background hover:bg-primary transition-colors group"
+        >
+          <span className="text-xs uppercase font-bold tracking-widest">Build My Project</span>
+          <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+        </button>
+        <button
+          aria-label="Menu"
+          onClick={() => setOpen((v) => !v)}
+          className="md:hidden p-5 flex items-center justify-end"
+        >
+          {open ? <X size={22} /> : <Menu size={22} />}
+        </button>
       </nav>
 
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="md:hidden overflow-hidden bg-background/95 backdrop-blur-md border-b border-border"
+            initial={{ height: 0 }}
+            animate={{ height: "auto" }}
+            exit={{ height: 0 }}
+            className="md:hidden overflow-hidden border-t-[1.5px] border-foreground bg-background"
           >
-            <ul className="px-5 py-4 space-y-3">
+            <ul>
               {links.map((l) => (
-                <li key={l.href}>
+                <li key={l.href} className="border-b-[1.5px] border-foreground">
                   <a
                     href={l.href}
                     onClick={() => setOpen(false)}
-                    className="block py-2 text-foreground"
+                    className="flex items-center justify-between p-5"
                   >
-                    {l.label}
+                    <span className="text-sm uppercase font-bold tracking-widest">{l.label}</span>
+                    <span className="text-xs text-primary font-bold">[{l.n}]</span>
                   </a>
                 </li>
               ))}
@@ -93,11 +73,12 @@ export const Navbar = () => {
                 <button
                   onClick={() => {
                     setOpen(false);
-                    openWhatsApp(`Hi ${SITE.short}, I'd like a quote.`);
+                    openWhatsApp(`Hi ${SITE.short}, I want to start a project.`);
                   }}
-                  className="w-full py-3 rounded-full bg-primary text-primary-foreground font-semibold"
+                  className="w-full flex items-center justify-between p-5 bg-foreground text-background"
                 >
-                  Get Quote on WhatsApp
+                  <span className="text-sm uppercase font-bold tracking-widest">Build My Project</span>
+                  <ArrowRight size={16} />
                 </button>
               </li>
             </ul>
