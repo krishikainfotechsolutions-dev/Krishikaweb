@@ -16,9 +16,9 @@ export const Portfolio = () => (
     <div className="px-6 md:px-12 lg:px-20 py-20 md:py-28">
       <SectionHeading
         number="02"
-        eyebrow="Selected Work"
-        title="Recent projects"
-        subtitle="A glimpse of what we've shipped — fast, sharp, and conversion-ready."
+        eyebrow="What We Build"
+        title="The kind of sites we ship"
+        subtitle="We just launched — these are the categories we specialise in. Be one of our first founding clients and your project lives here."
       />
     </div>
 
