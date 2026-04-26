@@ -115,7 +115,7 @@ const FounderDialog = ({
                 className="w-full h-full object-cover"
               />
               <div className="absolute bottom-5 left-5 px-3 py-1.5 bg-background border-[1.5px] border-foreground text-[10px] uppercase font-bold tracking-wider">
-                Founder · Since {founder.since}
+                Co-Founder · Krishika
               </div>
             </div>
 

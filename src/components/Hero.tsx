@@ -29,11 +29,11 @@ export const Hero = () => (
           </p>
           <div className="flex flex-col justify-end gap-5">
             <div className="flex items-center gap-4 border-t-[1.5px] border-foreground pt-4">
-              <span className="text-3xl md:text-4xl font-bold tabular-nums">50+</span>
+              <span className="size-3 bg-primary rounded-full animate-pulse" />
               <span className="text-[10px] uppercase font-bold leading-tight tracking-wider">
-                Websites shipped
+                Newly launched studio
                 <br />
-                since 2023
+                Now booking founding clients
               </span>
             </div>
             <div className="flex flex-wrap gap-3">
