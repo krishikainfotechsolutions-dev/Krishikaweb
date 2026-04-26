@@ -3,12 +3,12 @@ import { ArrowUpRight } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
 
 const projects = [
-  { n: "01", title: "Lumen Cafe", tag: "Business", color: "from-amber-400 to-orange-500" },
-  { n: "02", title: "Aarav Studio", tag: "Portfolio", color: "from-indigo-500 to-fuchsia-500" },
-  { n: "03", title: "KanpurKart", tag: "E-commerce", color: "from-emerald-500 to-teal-600" },
-  { n: "04", title: "Nidhi Photo", tag: "Portfolio", color: "from-sky-500 to-violet-600" },
-  { n: "05", title: "Bharat Realty", tag: "Business", color: "from-orange-500 to-rose-600" },
-  { n: "06", title: "Threadsy", tag: "E-commerce", color: "from-pink-500 to-purple-600" },
+  { n: "01", title: "Cafe / Restaurant", tag: "Business", color: "from-amber-400 to-orange-500" },
+  { n: "02", title: "Personal Brand", tag: "Portfolio", color: "from-indigo-500 to-fuchsia-500" },
+  { n: "03", title: "Online Store", tag: "E-commerce", color: "from-emerald-500 to-teal-600" },
+  { n: "04", title: "Photographer", tag: "Portfolio", color: "from-sky-500 to-violet-600" },
+  { n: "05", title: "Real Estate", tag: "Business", color: "from-orange-500 to-rose-600" },
+  { n: "06", title: "Fashion Label", tag: "E-commerce", color: "from-pink-500 to-purple-600" },
 ];
 
 export const Portfolio = () => (
