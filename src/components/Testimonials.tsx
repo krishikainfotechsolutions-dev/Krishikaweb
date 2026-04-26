@@ -1,6 +1,6 @@
 import useEmblaCarousel from "embla-carousel-react";
 import { useEffect } from "react";
-import { Star } from "lucide-react";
+import { Quote } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
 
 const items = [
@@ -31,31 +31,31 @@ export const Testimonials = () => {
 
   useEffect(() => {
     if (!embla) return;
-    const id = setInterval(() => embla.scrollNext(), 4000);
+    const id = setInterval(() => embla.scrollNext(), 4500);
     return () => clearInterval(id);
   }, [embla]);
 
   return (
-    <section className="relative py-20 md:py-32">
-      <div className="max-w-7xl mx-auto px-5 md:px-8">
-        <SectionHeading eyebrow="Clients" title="What people say" />
+    <section className="border-b-[1.5px] border-foreground bg-secondary">
+      <div className="px-6 md:px-12 lg:px-20 py-20 md:py-28">
+        <SectionHeading number="06" eyebrow="Clients" title="What people say" />
 
-        <div className="overflow-hidden" ref={ref}>
-          <div className="flex gap-5">
+        <div className="overflow-hidden border-[1.5px] border-foreground bg-background" ref={ref}>
+          <div className="flex">
             {items.map((t, i) => (
               <div
                 key={i}
-                className="min-w-[85%] sm:min-w-[55%] lg:min-w-[33%] p-6 rounded-2xl bg-card border border-border"
+                className={`min-w-[85%] sm:min-w-[55%] lg:min-w-[40%] p-8 md:p-10 ${
+                  i < items.length - 1 ? "border-r-[1.5px] border-foreground" : ""
+                }`}
               >
-                <div className="flex gap-0.5 text-primary mb-4">
-                  {Array.from({ length: 5 }).map((_, j) => (
-                    <Star key={j} size={14} fill="currentColor" />
-                  ))}
-                </div>
-                <p className="text-foreground text-sm leading-relaxed">"{t.quote}"</p>
-                <div className="mt-5 pt-5 border-t border-border">
-                  <div className="font-semibold text-foreground text-sm">{t.name}</div>
-                  <div className="text-xs text-muted-foreground">{t.role}</div>
+                <Quote size={28} className="text-primary mb-5" strokeWidth={2.5} />
+                <p className="text-base md:text-lg leading-relaxed font-medium">"{t.quote}"</p>
+                <div className="mt-6 pt-6 border-t-[1.5px] border-foreground/20">
+                  <div className="font-bold uppercase tracking-tight">{t.name}</div>
+                  <div className="text-xs uppercase tracking-widest text-muted-foreground mt-1">
+                    {t.role}
+                  </div>
                 </div>
               </div>
             ))}

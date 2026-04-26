@@ -3,48 +3,62 @@ import { ArrowUpRight } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
 
 const projects = [
-  { title: "Lumen Cafe", tag: "Business", color: "from-amber-500/40 to-rose-500/30" },
-  { title: "Aarav Studio", tag: "Portfolio", color: "from-indigo-500/40 to-fuchsia-500/30" },
-  { title: "KanpurKart", tag: "E-commerce", color: "from-emerald-500/40 to-teal-500/30" },
-  { title: "Nidhi Photography", tag: "Portfolio", color: "from-sky-500/40 to-violet-500/30" },
-  { title: "Bharat Realty", tag: "Business", color: "from-orange-500/40 to-red-500/30" },
-  { title: "Threadsy", tag: "E-commerce", color: "from-pink-500/40 to-purple-500/30" },
+  { n: "01", title: "Lumen Cafe", tag: "Business", color: "from-amber-400 to-orange-500" },
+  { n: "02", title: "Aarav Studio", tag: "Portfolio", color: "from-indigo-500 to-fuchsia-500" },
+  { n: "03", title: "KanpurKart", tag: "E-commerce", color: "from-emerald-500 to-teal-600" },
+  { n: "04", title: "Nidhi Photo", tag: "Portfolio", color: "from-sky-500 to-violet-600" },
+  { n: "05", title: "Bharat Realty", tag: "Business", color: "from-orange-500 to-rose-600" },
+  { n: "06", title: "Threadsy", tag: "E-commerce", color: "from-pink-500 to-purple-600" },
 ];
 
 export const Portfolio = () => (
-  <section id="portfolio" className="relative py-20 md:py-32 bg-card/30 border-y border-border">
-    <div className="max-w-7xl mx-auto px-5 md:px-8">
+  <section id="portfolio" className="border-b-[1.5px] border-foreground">
+    <div className="px-6 md:px-12 lg:px-20 py-20 md:py-28">
       <SectionHeading
-        eyebrow="Portfolio"
-        title="Recent work"
+        number="02"
+        eyebrow="Selected Work"
+        title="Recent projects"
         subtitle="A glimpse of what we've shipped — fast, sharp, and conversion-ready."
       />
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
-        {projects.map((p, i) => (
-          <motion.div
+    </div>
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t-[1.5px] border-foreground">
+      {projects.map((p, i) => {
+        const colEnd = (i + 1) % 3 !== 0;
+        const rowNotLast = i < projects.length - 3;
+        return (
+          <motion.a
+            href="#"
             key={p.title}
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.5, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
-            className="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-border bg-background cursor-pointer"
+            transition={{ duration: 0.5, delay: i * 0.05 }}
+            className={`group relative aspect-[4/3] overflow-hidden ${
+              colEnd ? "lg:border-r-[1.5px]" : ""
+            } ${(i + 1) % 2 !== 0 ? "sm:border-r-[1.5px] lg:border-r-[1.5px]" : "sm:border-r-0"} ${
+              rowNotLast ? "border-b-[1.5px]" : ""
+            } border-foreground bg-secondary`}
           >
-            <div className={`absolute inset-0 bg-gradient-to-br ${p.color} opacity-60 group-hover:scale-110 transition-transform duration-700`} />
+            <div className={`absolute inset-0 bg-gradient-to-br ${p.color} opacity-90 group-hover:scale-110 transition-transform duration-700`} />
             <div className="absolute inset-0 bg-grid opacity-30" />
-            <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-colors duration-300" />
-            <div className="absolute inset-0 p-6 flex flex-col justify-end">
-              <span className="text-[11px] uppercase tracking-widest text-white/90">{p.tag}</span>
-              <div className="flex items-end justify-between mt-1">
-                <h3 className="font-display text-2xl font-bold text-white">{p.title}</h3>
-                <ArrowUpRight
-                  className="text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all"
-                  size={22}
-                />
-              </div>
+            <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/30 transition-colors" />
+
+            <div className="absolute top-5 left-5 px-2 py-1 bg-background border-[1.5px] border-foreground text-[10px] uppercase font-bold tracking-wider">
+              [{p.n}] {p.tag}
             </div>
-          </motion.div>
-        ))}
-      </div>
+            <div className="absolute top-5 right-5 size-10 bg-background text-foreground border-[1.5px] border-foreground grid place-items-center group-hover:bg-primary group-hover:text-primary-foreground group-hover:rotate-45 transition-all">
+              <ArrowUpRight size={18} strokeWidth={2.5} />
+            </div>
+
+            <div className="absolute bottom-0 left-0 right-0 p-5 bg-background border-t-[1.5px] border-foreground">
+              <h3 className="font-display text-2xl font-bold uppercase tracking-tighter leading-none text-foreground">
+                {p.title}
+              </h3>
+            </div>
+          </motion.a>
+        );
+      })}
     </div>
   </section>
 );
