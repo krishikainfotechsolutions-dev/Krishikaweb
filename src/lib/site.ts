@@ -6,8 +6,8 @@ export const SITE = {
   short: "Krishika",
   city: "Kanpur, India",
   // International format, no '+'. Update to receive WhatsApp leads.
-  whatsapp: "919999999999",
-  email: "hello@krishika.in",
+  whatsapp: "917428863727",
+  email: "krishikainfotechsolutions@gmail.com",
   founders: [
     {
       name: "Krish Agarwal",
