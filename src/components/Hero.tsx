@@ -1,109 +1,88 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, Star } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { openWhatsApp } from "@/lib/whatsapp";
 import { SITE } from "@/lib/site";
 
-export const Hero = () => {
-  return (
-    <section
-      id="top"
-      className="relative min-h-[100svh] flex items-center pt-28 md:pt-32 pb-16 overflow-hidden bg-gradient-hero"
-    >
-      <div className="absolute inset-0 bg-grid pointer-events-none opacity-70" />
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: "var(--gradient-radial)" }}
-      />
+export const Hero = () => (
+  <section id="top" className="grid grid-cols-1 md:grid-cols-4 border-b-[1.5px] border-foreground">
+    <div className="md:col-span-3 p-6 md:p-12 lg:p-20 md:border-r-[1.5px] border-foreground bg-grid relative">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        className="max-w-5xl"
+      >
+        <span className="inline-block px-2 py-1 border-[1.5px] border-primary text-primary text-[10px] font-bold uppercase mb-8 tracking-wider">
+          Web Design & Development / Kanpur_UP
+        </span>
+        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[110px] leading-[0.9] font-bold uppercase tracking-tighter">
+          We build
+          <br />
+          websites
+          <br />
+          that grow <span className="text-primary">business</span>
+        </h1>
 
-      <div className="relative max-w-5xl mx-auto px-5 md:px-8 text-center w-full">
-        <motion.span
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-border bg-card/80 backdrop-blur text-xs text-muted-foreground mb-6 shadow-soft"
-        >
-          <Sparkles size={13} className="text-primary" />
-          Web studio · {SITE.city}
-        </motion.span>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-balance text-foreground"
-        >
-          We build websites that{" "}
-          <span className="relative inline-block">
-            <span className="text-primary">grow your business</span>
-            <svg
-              className="absolute -bottom-2 left-0 w-full"
-              viewBox="0 0 300 12"
-              fill="none"
-              preserveAspectRatio="none"
-            >
-              <path
-                d="M2 9 Q 75 2, 150 6 T 298 4"
-                stroke="hsl(var(--primary))"
-                strokeWidth="3"
-                strokeLinecap="round"
-                fill="none"
-              />
-            </svg>
-          </span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          className="mt-7 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto text-balance"
-        >
-          Bold, modern, premium websites engineered to convert. Static from{" "}
-          <span className="text-foreground font-semibold">₹6,500</span> · Dynamic from{" "}
-          <span className="text-foreground font-semibold">₹9,000</span>.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.25 }}
-          className="mt-9 flex flex-wrap gap-3 justify-center"
-        >
-          <button
-            onClick={() =>
-              openWhatsApp(`Hi ${SITE.short}, I want to discuss a website project.`)
-            }
-            className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold hover:scale-[1.03] transition-transform shadow-primary"
-          >
-            Start on WhatsApp
-            <ArrowRight size={18} className="group-hover:translate-x-0.5 transition-transform" />
-          </button>
-          <a
-            href="#portfolio"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-border bg-card text-foreground font-medium hover:border-primary/60 hover:text-primary transition shadow-soft"
-          >
-            View Work
-          </a>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.35 }}
-          className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-muted-foreground"
-        >
-          <div className="flex items-center gap-1.5">
-            <div className="flex text-primary">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} size={14} fill="currentColor" />
-              ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-14 md:mt-20">
+          <p className="text-base md:text-lg leading-relaxed font-medium text-foreground/80 max-w-md">
+            A focused Kanpur studio building bold, conversion-led business, e-commerce and portfolio websites — without the agency markup.
+          </p>
+          <div className="flex flex-col justify-end gap-5">
+            <div className="flex items-center gap-4 border-t-[1.5px] border-foreground pt-4">
+              <span className="text-3xl md:text-4xl font-bold tabular-nums">50+</span>
+              <span className="text-[10px] uppercase font-bold leading-tight tracking-wider">
+                Websites shipped
+                <br />
+                since 2023
+              </span>
             </div>
-            <span><span className="text-foreground font-semibold">4.9/5</span> client rating</span>
+            <div className="flex flex-wrap gap-3">
+              <button
+                onClick={() => openWhatsApp(`Hi ${SITE.short}, I want a quote for a website.`)}
+                className="group inline-flex items-center gap-3 px-6 py-3.5 bg-foreground text-background text-sm font-bold uppercase tracking-wider hover:bg-primary transition-colors"
+              >
+                Start on WhatsApp
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </button>
+              <a
+                href="#portfolio"
+                className="inline-flex items-center gap-3 px-6 py-3.5 border-[1.5px] border-foreground text-sm font-bold uppercase tracking-wider hover:bg-foreground hover:text-background transition-colors"
+              >
+                View Work
+              </a>
+            </div>
           </div>
-          <div><span className="text-foreground font-semibold">50+</span> Projects shipped</div>
-          <div><span className="text-foreground font-semibold">7 days</span> Avg delivery</div>
-        </motion.div>
+        </div>
+      </motion.div>
+    </div>
+
+    <div className="grid grid-rows-3 border-t-[1.5px] md:border-t-0 border-foreground">
+      <div className="p-6 border-b-[1.5px] border-foreground flex flex-col justify-between">
+        <span className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider">Location</span>
+        <div className="text-sm font-medium mt-3">
+          26.4499° N, 80.3319° E
+          <br />
+          {SITE.city}
+        </div>
       </div>
-    </section>
-  );
-};
+      <div className="p-6 border-b-[1.5px] border-foreground flex flex-col justify-between">
+        <span className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider">Stack</span>
+        <div className="text-sm font-medium mt-3">
+          React · Next.js
+          <br />
+          E-commerce · CMS
+          <br />
+          SEO · Analytics
+        </div>
+      </div>
+      <div className="p-6 bg-primary/5 flex flex-col justify-center items-center">
+        <div className="size-16 border-[1.5px] border-primary rounded-full flex items-center justify-center animate-pulse">
+          <div className="size-2 bg-primary rounded-full" />
+        </div>
+        <span className="mt-4 text-[10px] uppercase font-bold text-primary tracking-wider">
+          Studio: Online
+        </span>
+      </div>
+    </div>
+  </section>
+);

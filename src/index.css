@@ -8,42 +8,42 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Krishika Infotech — Light, modern, premium */
-    --background: 40 20% 98%;          /* #FAF9F6 warm off-white */
-    --foreground: 230 25% 12%;         /* deep indigo-black */
+    /* Krishika Infotech — Structural Brutalist */
+    --background: 0 0% 98.4%;          /* #FBFBFB paper */
+    --foreground: 0 0% 7%;             /* #121212 steel */
 
     --card: 0 0% 100%;
-    --card-foreground: 230 25% 12%;
+    --card-foreground: 0 0% 7%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 230 25% 12%;
+    --popover-foreground: 0 0% 7%;
 
-    --primary: 244 75% 58%;            /* indigo */
+    --primary: 224 100% 50%;           /* #0038FF blueprint */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 40 15% 94%;
-    --secondary-foreground: 230 25% 12%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 7%;
 
-    --muted: 40 15% 94%;
-    --muted-foreground: 230 10% 42%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 244 75% 58%;
+    --accent: 224 100% 50%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 78% 55%;
+    --destructive: 0 84% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 230 15% 90%;
-    --input: 230 15% 90%;
-    --ring: 244 75% 58%;
+    --border: 0 0% 7%;                 /* hard black borders */
+    --input: 0 0% 7%;
+    --ring: 224 100% 50%;
 
-    --radius: 1rem;
+    --radius: 0;                       /* no rounded corners */
 
-    --shadow-soft: 0 1px 2px hsl(230 25% 12% / 0.04), 0 8px 24px -8px hsl(230 25% 12% / 0.08);
-    --shadow-elevated: 0 2px 4px hsl(230 25% 12% / 0.04), 0 24px 48px -16px hsl(230 25% 12% / 0.12);
-    --shadow-primary: 0 12px 32px -8px hsl(var(--primary) / 0.35);
-    --gradient-radial: radial-gradient(ellipse at top, hsl(var(--primary) / 0.08), transparent 60%);
-    --gradient-hero: linear-gradient(180deg, hsl(40 30% 99%) 0%, hsl(40 20% 96%) 100%);
+    --shadow-soft: 4px 4px 0 0 hsl(var(--foreground));
+    --shadow-elevated: 8px 8px 0 0 hsl(var(--foreground));
+    --shadow-primary: 6px 6px 0 0 hsl(var(--primary));
+    --gradient-radial: radial-gradient(ellipse at top, hsl(var(--primary) / 0.05), transparent 60%);
+    --gradient-hero: linear-gradient(180deg, hsl(0 0% 99%) 0%, hsl(0 0% 97%) 100%);
 
     --sidebar-background: 0 0% 98%;
 
@@ -108,30 +108,35 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
     font-feature-settings: "ss01", "cv11";
   }
 
   h1, h2, h3, h4, h5 {
     font-family: 'Space Grotesk', system-ui, sans-serif;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
   }
 }
 
 @layer utilities {
   .bg-grid {
     background-image:
-      linear-gradient(to right, hsl(230 25% 12% / 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(230 25% 12% / 0.05) 1px, transparent 1px);
-    background-size: 48px 48px;
-    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+      linear-gradient(to right, hsl(0 0% 7% / 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(0 0% 7% / 0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
   }
   .shadow-soft { box-shadow: var(--shadow-soft); }
   .shadow-elevated { box-shadow: var(--shadow-elevated); }
   .shadow-primary { box-shadow: var(--shadow-primary); }
   .bg-gradient-hero { background: var(--gradient-hero); }
-  .ring-primary-strong {
-    box-shadow: 0 0 0 1.5px hsl(var(--primary)), var(--shadow-primary);
+  .brutal-card {
+    border: 1.5px solid hsl(var(--foreground));
+    background: hsl(var(--card));
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .brutal-card:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: var(--shadow-soft);
   }
   .text-balance { text-wrap: balance; }
   .scrollbar-none::-webkit-scrollbar { display: none; }

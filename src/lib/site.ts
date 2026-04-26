@@ -5,23 +5,29 @@ export const SITE = {
   name: "Krishika Infotech Solutions",
   short: "Krishika",
   city: "Kanpur, India",
-  // Update this number to receive WhatsApp leads (international format, no +)
+  // International format, no '+'. Update to receive WhatsApp leads.
   whatsapp: "919999999999",
   email: "hello@krishika.in",
   founders: [
     {
       name: "Krish Agarwal",
       role: "Co-Founder · Developer",
-      bio: "Builds fast, scalable web experiences. Obsessed with clean code and conversion-led design.",
-      initials: "KA",
+      tag: "Engineering",
+      bio: "Builds fast, scalable web experiences using React, Next.js and modern tooling. Obsessed with clean code, performance and turning business goals into shipped product.",
       photo: krishImg,
+      skills: ["React", "Next.js", "Node.js", "Tailwind", "Supabase", "SEO"],
+      since: "2023",
     },
     {
       name: "Vaishanavi",
       role: "Co-Founder · Designer",
-      bio: "Crafts bold visual identities and intuitive interfaces that turn visitors into customers.",
-      initials: "V",
+      tag: "Design",
+      bio: "Crafts bold visual identities and intuitive interfaces that turn visitors into customers. Leads brand, UI/UX and the art direction across every project.",
       photo: vaishanaviImg,
+      skills: ["UI/UX", "Branding", "Figma", "Webflow", "Motion", "Strategy"],
+      since: "2023",
     },
   ],
 };
+
+export type Founder = (typeof SITE.founders)[number];

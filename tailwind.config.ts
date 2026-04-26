@@ -102,7 +102,8 @@ export default {
       },
       fontFamily: {
         display: ['"Space Grotesk"', "system-ui", "sans-serif"],
-        sans: ['"Inter"', "system-ui", "sans-serif"],
+        sans: ['"Space Grotesk"', "system-ui", "sans-serif"],
+        mono: ['"Space Grotesk"', "monospace"],
       },
     },
   },
