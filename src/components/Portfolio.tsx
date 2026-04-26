@@ -31,13 +31,13 @@ export const Portfolio = () => (
           >
             <div className={`absolute inset-0 bg-gradient-to-br ${p.color} opacity-60 group-hover:scale-110 transition-transform duration-700`} />
             <div className="absolute inset-0 bg-grid opacity-30" />
-            <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/30 transition-colors duration-300" />
+            <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-colors duration-300" />
             <div className="absolute inset-0 p-6 flex flex-col justify-end">
-              <span className="text-[11px] uppercase tracking-widest text-foreground/80">{p.tag}</span>
+              <span className="text-[11px] uppercase tracking-widest text-white/90">{p.tag}</span>
               <div className="flex items-end justify-between mt-1">
-                <h3 className="font-display text-2xl font-bold text-foreground">{p.title}</h3>
+                <h3 className="font-display text-2xl font-bold text-white">{p.title}</h3>
                 <ArrowUpRight
-                  className="text-foreground translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all"
+                  className="text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all"
                   size={22}
                 />
               </div>

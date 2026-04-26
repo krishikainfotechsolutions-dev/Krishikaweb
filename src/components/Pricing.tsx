@@ -55,7 +55,7 @@ export const Pricing = () => (
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
             className={`relative p-7 md:p-8 rounded-2xl bg-card border ${
-              p.highlight ? "border-primary glow-border" : "border-border"
+              p.highlight ? "border-primary ring-primary-strong" : "border-border shadow-soft"
             }`}
           >
             {p.highlight && (

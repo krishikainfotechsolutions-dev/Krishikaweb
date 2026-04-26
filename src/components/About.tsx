@@ -20,16 +20,26 @@ export const About = () => (
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
             whileHover={{ y: -6 }}
-            className="group relative p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-colors"
+            className="group relative p-7 rounded-2xl bg-card border border-border hover:border-primary/40 transition-all shadow-soft hover:shadow-elevated"
           >
-            <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
-              style={{ boxShadow: "var(--shadow-soft-glow)" }} />
-            <div className="w-14 h-14 rounded-xl bg-primary/10 border border-primary/30 grid place-items-center mb-5">
-              <span className="font-display font-bold text-primary text-lg">{f.initials}</span>
+            <div className="flex items-center gap-5">
+              <div className="relative shrink-0">
+                <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-primary/40 to-primary/10 blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
+                <img
+                  src={f.photo}
+                  alt={`${f.name} — ${f.role}`}
+                  loading="lazy"
+                  width={120}
+                  height={120}
+                  className="relative w-24 h-24 md:w-28 md:h-28 rounded-full object-cover ring-2 ring-border group-hover:ring-primary/60 transition"
+                />
+              </div>
+              <div>
+                <h3 className="font-display text-xl font-semibold text-foreground">{f.name}</h3>
+                <p className="text-sm text-primary mt-0.5">{f.role}</p>
+              </div>
             </div>
-            <h3 className="font-display text-xl font-semibold text-foreground">{f.name}</h3>
-            <p className="text-sm text-primary mt-1">{f.role}</p>
-            <p className="mt-4 text-muted-foreground text-sm leading-relaxed">{f.bio}</p>
+            <p className="mt-5 text-muted-foreground text-sm leading-relaxed">{f.bio}</p>
           </motion.div>
         ))}
       </div>

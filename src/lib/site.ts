@@ -1,3 +1,6 @@
+import krishImg from "@/assets/founder-krish.jpg";
+import vaishanaviImg from "@/assets/founder-vaishanavi.jpg";
+
 export const SITE = {
   name: "Krishika Infotech Solutions",
   short: "Krishika",
@@ -11,12 +14,14 @@ export const SITE = {
       role: "Co-Founder · Developer",
       bio: "Builds fast, scalable web experiences. Obsessed with clean code and conversion-led design.",
       initials: "KA",
+      photo: krishImg,
     },
     {
       name: "Vaishanavi",
       role: "Co-Founder · Designer",
       bio: "Crafts bold visual identities and intuitive interfaces that turn visitors into customers.",
       initials: "V",
+      photo: vaishanaviImg,
     },
   ],
 };
