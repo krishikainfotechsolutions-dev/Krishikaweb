@@ -1,14 +1,20 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
+import workCafe from "@/assets/work-cafe.jpg";
+import workPersonal from "@/assets/work-personal.jpg";
+import workStore from "@/assets/work-store.jpg";
+import workPhoto from "@/assets/work-photo.jpg";
+import workRealEstate from "@/assets/work-realestate.jpg";
+import workFashion from "@/assets/work-fashion.jpg";
 
 const projects = [
-  { n: "01", title: "Cafe / Restaurant", tag: "Business", color: "from-amber-400 to-orange-500" },
-  { n: "02", title: "Personal Brand", tag: "Portfolio", color: "from-indigo-500 to-fuchsia-500" },
-  { n: "03", title: "Online Store", tag: "E-commerce", color: "from-emerald-500 to-teal-600" },
-  { n: "04", title: "Photographer", tag: "Portfolio", color: "from-sky-500 to-violet-600" },
-  { n: "05", title: "Real Estate", tag: "Business", color: "from-orange-500 to-rose-600" },
-  { n: "06", title: "Fashion Label", tag: "E-commerce", color: "from-pink-500 to-purple-600" },
+  { n: "01", title: "Cafe / Restaurant", tag: "Business", color: "from-amber-400 to-orange-500", image: workCafe },
+  { n: "02", title: "Personal Brand", tag: "Portfolio", color: "from-indigo-500 to-fuchsia-500", image: workPersonal },
+  { n: "03", title: "Online Store", tag: "E-commerce", color: "from-emerald-500 to-teal-600", image: workStore },
+  { n: "04", title: "Photographer", tag: "Portfolio", color: "from-sky-500 to-violet-600", image: workPhoto },
+  { n: "05", title: "Real Estate", tag: "Business", color: "from-orange-500 to-rose-600", image: workRealEstate },
+  { n: "06", title: "Fashion Label", tag: "E-commerce", color: "from-pink-500 to-purple-600", image: workFashion },
 ];
 
 export const Portfolio = () => (
@@ -40,9 +46,17 @@ export const Portfolio = () => (
               rowNotLast ? "border-b-[1.5px]" : ""
             } border-foreground bg-secondary`}
           >
-            <div className={`absolute inset-0 bg-gradient-to-br ${p.color} opacity-90 group-hover:scale-110 transition-transform duration-700`} />
-            <div className="absolute inset-0 bg-grid opacity-30" />
-            <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/30 transition-colors" />
+            <img
+              src={p.image}
+              alt={`${p.title} website example by Krishika Infotech`}
+              loading="lazy"
+              width={800}
+              height={608}
+              className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className={`absolute inset-0 bg-gradient-to-br ${p.color} opacity-60 mix-blend-multiply`} />
+            <div className="absolute inset-0 bg-grid opacity-20" />
+            <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/40 transition-colors" />
 
             <div className="absolute top-5 left-5 px-2 py-1 bg-background border-[1.5px] border-foreground text-[10px] uppercase font-bold tracking-wider">
               [{p.n}] {p.tag}
