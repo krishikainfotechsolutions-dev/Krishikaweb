@@ -2,19 +2,19 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
 import workCafe from "@/assets/work-cafe.jpg";
-import workPersonal from "@/assets/work-personal.jpg";
 import workStore from "@/assets/work-store.jpg";
 import workPhoto from "@/assets/work-photo.jpg";
 import workRealEstate from "@/assets/work-realestate.jpg";
 import workFashion from "@/assets/work-fashion.jpg";
+import workDpsKanpur from "@/assets/work-dps-kanpur.png";
 
 const projects = [
-  { n: "01", title: "Cafe / Restaurant", tag: "Business", color: "from-amber-400 to-orange-500", image: workCafe },
-  { n: "02", title: "Personal Brand", tag: "Portfolio", color: "from-indigo-500 to-fuchsia-500", image: workPersonal },
-  { n: "03", title: "Online Store", tag: "E-commerce", color: "from-emerald-500 to-teal-600", image: workStore },
-  { n: "04", title: "Photographer", tag: "Portfolio", color: "from-sky-500 to-violet-600", image: workPhoto },
-  { n: "05", title: "Real Estate", tag: "Business", color: "from-orange-500 to-rose-600", image: workRealEstate },
-  { n: "06", title: "Fashion Label", tag: "E-commerce", color: "from-pink-500 to-purple-600", image: workFashion },
+  { n: "01", title: "DPS Kanpur", tag: "Live · School", color: "from-emerald-600 to-green-800", image: workDpsKanpur, href: "https://dehradoon.org/", live: true },
+  { n: "02", title: "Cafe / Restaurant", tag: "Business", color: "from-amber-400 to-orange-500", image: workCafe, href: "#", live: false },
+  { n: "03", title: "Online Store", tag: "E-commerce", color: "from-emerald-500 to-teal-600", image: workStore, href: "#", live: false },
+  { n: "04", title: "Photographer", tag: "Portfolio", color: "from-sky-500 to-violet-600", image: workPhoto, href: "#", live: false },
+  { n: "05", title: "Real Estate", tag: "Business", color: "from-orange-500 to-rose-600", image: workRealEstate, href: "#", live: false },
+  { n: "06", title: "Fashion Label", tag: "E-commerce", color: "from-pink-500 to-purple-600", image: workFashion, href: "#", live: false },
 ];
 
 export const Portfolio = () => (
@@ -24,7 +24,7 @@ export const Portfolio = () => (
         number="02"
         eyebrow="What We Build"
         title="The kind of sites we ship"
-        subtitle="We just launched — these are the categories we specialise in. Be one of our first founding clients and your project lives here."
+        subtitle="Our first live project is up — and these are the categories we specialise in. Be one of our founding clients and your project lives here next."
       />
     </div>
 
@@ -34,7 +34,9 @@ export const Portfolio = () => (
         const rowNotLast = i < projects.length - 3;
         return (
           <motion.a
-            href="#"
+            href={p.href}
+            target={p.live ? "_blank" : undefined}
+            rel={p.live ? "noopener noreferrer" : undefined}
             key={p.title}
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -61,6 +63,12 @@ export const Portfolio = () => (
             <div className="absolute top-5 left-5 px-2 py-1 bg-background border-[1.5px] border-foreground text-[10px] uppercase font-bold tracking-wider">
               [{p.n}] {p.tag}
             </div>
+            {p.live && (
+              <div className="absolute top-5 left-5 mt-9 px-2 py-1 bg-[#FFD60A] border-[1.5px] border-foreground text-[10px] uppercase font-bold tracking-wider text-foreground inline-flex items-center gap-1">
+                <span className="size-1.5 rounded-full bg-foreground animate-pulse" />
+                Live Site
+              </div>
+            )}
             <div className="absolute top-5 right-5 size-10 bg-background text-foreground border-[1.5px] border-foreground grid place-items-center group-hover:bg-primary group-hover:text-primary-foreground group-hover:rotate-45 transition-all">
               <ArrowUpRight size={18} strokeWidth={2.5} />
             </div>
