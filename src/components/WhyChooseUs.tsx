@@ -3,18 +3,23 @@ import { Zap, Search, Headphones, IndianRupee, Code2, MapPin } from "lucide-reac
 import { SectionHeading } from "./SectionHeading";
 
 const items = [
-  { n: "01", icon: Zap, title: "Lightning Fast", desc: "Optimized builds that load in under 2 seconds." },
-  { n: "02", icon: Search, title: "SEO Built-in", desc: "Schema, meta, sitemap — Google-ready from day one." },
-  { n: "03", icon: Headphones, title: "Real Support", desc: "Direct WhatsApp line. No tickets, no waiting." },
-  { n: "04", icon: IndianRupee, title: "Honest Pricing", desc: "Transparent starting prices. No hidden fees." },
-  { n: "05", icon: Code2, title: "Modern Stack", desc: "React, Next.js, Tailwind — production-grade code." },
-  { n: "06", icon: MapPin, title: "Local & Personal", desc: "Based in Kanpur. Meet us. Talk to the founders." },
+  { n: "01", icon: Zap, title: "Lightning Fast Websites", desc: "Optimized builds that load in under 2 seconds — Google loves fast sites and so do your customers." },
+  { n: "02", icon: Search, title: "SEO Ready from Day One", desc: "Schema markup, meta tags, sitemap — your Kanpur business will be discoverable on Google from launch." },
+  { n: "03", icon: Headphones, title: "Direct WhatsApp Support", desc: "No tickets, no waiting. Direct WhatsApp line to the founders. Real support from real people in Kanpur." },
+  { n: "04", icon: IndianRupee, title: "Affordable Pricing", desc: "Websites starting at just ₹6,500. Transparent pricing with no hidden fees — best rates in Kanpur." },
+  { n: "05", icon: Code2, title: "Modern Tech Stack", desc: "React, Next.js, Tailwind CSS — production-grade code that scales with your Kanpur business." },
+  { n: "06", icon: MapPin, title: "Local Kanpur Studio", desc: "Based in Kanpur Nagar, UP. Meet us in person. Work with founders who understand the local market." },
 ];
 
 export const WhyChooseUs = () => (
   <section className="border-b-[1.5px] border-foreground bg-secondary">
     <div className="px-6 md:px-12 lg:px-20 py-20 md:py-28">
-      <SectionHeading number="04" eyebrow="Why us" title="Built different. On purpose." />
+      <SectionHeading
+        number="04"
+        eyebrow="Why choose Krishika Infotech Kanpur"
+        title="Built different. On purpose."
+        subtitle="The best web design company in Kanpur — trusted by local businesses."
+      />
     </div>
 
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t-[1.5px] border-foreground">
