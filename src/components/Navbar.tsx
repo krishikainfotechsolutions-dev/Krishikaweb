@@ -18,11 +18,9 @@ export const Navbar = () => {
     <header className="sticky top-0 z-50 bg-background border-b-[1.5px] border-foreground">
       <nav className="grid grid-cols-2 md:grid-cols-6">
         <a href="#top" className="p-5 md:p-6 border-r-[1.5px] border-foreground flex items-center">
-          <img
-            src="/logo.png"
-            alt={SITE.short}
-            className="h-8 md:h-10 w-auto object-contain"
-          />
+          <span className="font-bold tracking-tighter text-xl md:text-2xl uppercase">
+            {SITE.short}<span className="text-primary">.</span>
+          </span>
         </a>
         {links.map((l) => (
           <a
