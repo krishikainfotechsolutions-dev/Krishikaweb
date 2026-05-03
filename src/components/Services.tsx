@@ -6,23 +6,23 @@ const services = [
   {
     n: "01",
     icon: Briefcase,
-    title: "Business Websites",
-    desc: "Authority sites that convert visitors into qualified leads. Fast, SEO-ready and easy to update.",
-    points: ["Lead capture", "SEO setup", "CMS optional"],
+    title: "Business Websites Kanpur",
+    desc: "Professional business websites for shops, clinics, agencies and local businesses in Kanpur. Mobile responsive, fast loading and SEO-ready to rank on Google.",
+    points: ["Lead capture forms", "SEO optimized", "WhatsApp integration"],
   },
   {
     n: "02",
     icon: ShoppingCart,
-    title: "E-commerce",
-    desc: "Online stores tuned for conversions. Razorpay/UPI, inventory management and WhatsApp orders.",
-    points: ["Razorpay / UPI", "Inventory", "WhatsApp orders"],
+    title: "E-commerce Stores",
+    desc: "Complete online stores for Kanpur businesses — sell clothes, jewellery, food and more. Razorpay, UPI & COD payment support included.",
+    points: ["Razorpay / UPI / COD", "Product management", "WhatsApp orders"],
   },
   {
     n: "03",
     icon: User,
-    title: "Portfolios",
-    desc: "Premium personal sites that make recruiters and clients say yes. Custom design, animations, domain.",
-    points: ["Custom design", "Animations", "Domain setup"],
+    title: "Portfolio Websites",
+    desc: "Stunning personal portfolio websites for freelancers, photographers and professionals in Kanpur. Stand out and win more clients online.",
+    points: ["Custom design", "Animations", "Domain & hosting setup"],
   },
 ];
 
@@ -31,9 +31,9 @@ export const Services = () => (
     <div className="px-6 md:px-12 lg:px-20 py-20 md:py-28">
       <SectionHeading
         number="01"
-        eyebrow="Services"
+        eyebrow="Web Design Services Kanpur"
         title="What we build"
-        subtitle="Three focused offerings — done with depth, not breadth."
+        subtitle="Professional websites for every business in Kanpur — done with depth, not breadth."
       />
     </div>
 
